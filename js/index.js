@@ -12,7 +12,8 @@ function timeOut_init() {
     setTimeout('timeOut()', 5000);
 }
 
-
+$('#AppToken').html('mostrar AppToken');
+//console.log('Endpoint?' + endpoint);
 
 document.querySelector('#hello').addEventListener ('click', function () {
 

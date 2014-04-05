@@ -51,3 +51,13 @@ var Push = (function() {
   console.log('PUSH: mi endpoint es: ' + endpoint);
  }
 })();
+
+
+var alarmId1;
+ var request = navigator.mozAlarms.add(new Date("Abr 3, 2014 21:30:00"), "ignoreTimezone", { mydata: "test" });
+ request.onsuccess = function (e) { alarmId1 = e.target.result; };
+ request.onerror = function (e) { alert(e.target.error.name); };
+
+var request = navigator.mozAlarms.getAll();
+ request.onsuccess = function (e) { alert(JSON.stringify(e.target.result)); };
+ request.onerror = function (e) { alert(e.target.error.name); };
