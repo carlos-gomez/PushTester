@@ -1,5 +1,7 @@
 $(function() {
   alert('Welcome to PushTester')
+  var token = localStorage.endpoint || null;
+  $('#AppToken').html('Mi AppToken: ' + token);
   timeOut_init();
 });
 
@@ -11,9 +13,6 @@ function timeOut() {
 function timeOut_init() {
     setTimeout('timeOut()', 5000);
 }
-
-$('#AppToken').html('mostrar AppToken');
-//console.log('Endpoint?' + endpoint);
 
 document.querySelector('#hello').addEventListener ('click', function () {
 
