@@ -7,24 +7,39 @@ and open the template in the editor.
   <head>
     <title>PUSH LIBRARY TEST</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-    <link href="css/style/headers.css" rel="stylesheet" type="text/css">
-    <link href="/css/estilo.css" rel="stylesheet"/>
+    <style type="text/css">
+      @import url(css/style/headers.css);
+      @font-face
+      {
+        font-family: FeuraSans;
+        src: url('css/fonts/FiraSans-Regular.ttf');
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: "FiraSans", Sans-serif;
+        font-size: 10px;
+        background-color: #fff;}
+    </style>
+    <link href="css/style/icons.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
     <script defer async type="text/javascript" src="js/index.js"></script>
     <script defer async type="text/javascript" src="js/push.js"></script>
-    <!--<script defer async type="text/javascript" src="/js/index.js"></script>-->
   </head>
   <body>
-<section role="region">
-  <header>
-    <menu type="toolbar">
-      <a href="#"><span class="icon icon-edit">edit</span></a>
-      <a href="#"><span class="icon icon-add">add</span></a>
-    </menu>
-    <h1>PushTester</h1>
-  </header>
-</section>
-    <div id="AppToken">Mostrar AppToken</div>
+    <section role="region">
+      <header>
+        <menu type="toolbar">
+        <!--  <a href="#"><span class="icon icon-user">edit</span></a>-->
+          <a href="#"><span class="icon icon-deviceinfo">push</span></a>
+        </menu>
+        <h1>PushTester</h1>
+      </header>
+      <header>
+        <div id="AppToken">Mi AppToken: </div>
+      </header>
+    </section>
+    
 <!--     <div id="mozAPI">
       <h2>hello tests</h2>
       <button onclick="navigator.push.requestHello()">hello()</button>
@@ -44,7 +59,7 @@ and open the template in the editor.
       <div id="updateversion-msg">(AS petition response will be put here)</div>
       <div id="asyncmsg">(message will shown here if everything is correct)</div>
     </div> -->
-    <section data-position="current" id="main">
+    <!-- <section data-position="current" id="main">
       <section role="region" id="header">
         <header>
           <menu type="toolbar">
@@ -55,7 +70,7 @@ and open the template in the editor.
           </menu>
         </header>
       </section>
-    </section>
+    </section> -->
 
 <!--     <div id="extAPI">
     </div>

@@ -50,7 +50,7 @@ var Push = (function() {
   endpoint = localStorage.endpoint;
   console.log('PUSH: mi endpoint es: ' + endpoint);
  }
-})();
+});
 
 
 /*var alarmId1;

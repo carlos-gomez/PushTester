@@ -2,6 +2,12 @@ $(function() {
   alert('Welcome to PushTester')
   var token = localStorage.endpoint || null;
   $('#AppToken').html('Mi AppToken: ' + token);
+  //Connection Status
+   var online = window.navigator.onLine;
+   console.log('Conectado: '+ online);
+   if (!online){
+   	alert('Conecte el dispositivo a una red con datos');
+   }
   //timeOut_init();
 });
 
@@ -14,7 +20,7 @@ function timeOut_init() {
     setTimeout('timeOut()', 5000);
 }
 
-document.querySelector('#hello').addEventListener ('click', function () {
+/*document.querySelector('#hello').addEventListener ('click', function () {
 
 alert('hacer hello');
 });
@@ -32,4 +38,4 @@ alert('hacer unregister');
 document.querySelector('#notify').addEventListener ('click', function () {
 
 alert('hacer notify');
-});
+});*/
