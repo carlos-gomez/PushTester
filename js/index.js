@@ -2,7 +2,7 @@ $(function() {
   alert('Welcome to PushTester')
   var token = localStorage.endpoint || null;
   $('#AppToken').html('Mi AppToken: ' + token);
-  timeOut_init();
+  //timeOut_init();
 });
 
 function timeOut() {
