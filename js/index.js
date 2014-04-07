@@ -20,6 +20,9 @@ function timeOut_init() {
     setTimeout('timeOut()', 5000);
 }
 
+document.querySelector('#pushbtn').addEventListener ('click', function(){
+	alert('Sent new version to push notification server')
+})
 /*document.querySelector('#hello').addEventListener ('click', function () {
 
 alert('hacer hello');
