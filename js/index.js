@@ -1,11 +1,15 @@
 $(function() {
   alert('Welcome to PushTester')
-  var token = localStorage.endpoint || null;
-  $('#AppToken').html('Mi AppToken: ' + token);
+
   //Connection Status
    var online = window.navigator.onLine;
    console.log('Conectado: '+ online);
-   if (!online){
+   if (online){
+   	var token = localStorage.endpoint || null;
+   	$('#AppToken').html('Mi AppToken: ' + token);
+   	$('#AppToken').html('Mi AppToken: ' + localStorage.endpoint);
+   }
+   else{
    	alert('Conecte el dispositivo a una red con datos');
    }
   //timeOut_init();
