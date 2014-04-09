@@ -8,6 +8,7 @@ var Push = (function() {
 
 
       if(endpoint == evt.pushEndpoint) {
+        console.log('endpoint equals evt.pushEndpoint ' + endpoint);
       var notification = navigator.mozNotification.createNotification('Ping', 'version = ' + evt.version);
       notification.show();
       }
