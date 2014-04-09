@@ -22,6 +22,8 @@ and open the template in the editor.
         background-color: #fff;}
     </style>
     <link href="css/style/icons.css" rel="stylesheet" type="text/css">
+    <link href="css/style/lists.css" rel="stylesheet" type="text/css">
+    <link href="css/style/status.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
     <script defer async type="text/javascript" src="js/index.js"></script>
     <script defer async type="text/javascript" src="js/push.js"></script>
@@ -39,6 +41,34 @@ and open the template in the editor.
         <div id="AppToken">Mi AppToken: </div>
       </header>
     </section>
+
+    <section data-type="list">
+  <header>INFO</header>
+  <ul>
+    <li>
+      <a>
+        <p>Las notifications received</p>
+        <p>date + hour</p>
+      </a>
+    </li>
+    <li>
+      <a>
+        <p>Last version received</p>
+        <p>int version</p>
+      </a>
+    </li>
+    <li>
+      <a>
+        <p>Next scheduled check</p>
+        <p>date + hour (see alarms API)</p>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section role="status">
+  <p>TELEFONICA PNS status is <strong>OK</strong></p>
+</section>
     
 <!--     <div id="mozAPI">
       <h2>hello tests</h2>
