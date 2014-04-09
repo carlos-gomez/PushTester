@@ -32,6 +32,18 @@ document.querySelector('#pushbtn').addEventListener ('click', function(){
 })
 
 function beep(severity, msj){
+	switch(severity){
+		case 'KO':
+			fill_canvas(pns_status, CANVAS_KO, CANVAS_STR_KO);
+			alert('Algo salió mal :( ' + '\r' + msj);
+			//beep :) 
+			break;
+
+		case 'WR':
+			fill_canvas(pns_status, CANVAS_WR, CANVAS_STR_WR);
+			alert('Be carefully' + '\r' + msj);
+			break;
+	}
 
 }
 
@@ -116,6 +128,7 @@ function endpoint_register(){
       req.onerror = function(e) {
       	//aqui llamamos a beep
        console.log('PUSH-REGISTER: error --> ' + JSON.stringify(e));
+       beep(KO, JSON.stringify(e));
      }
 
     });
@@ -140,6 +153,7 @@ function endpoint_register(){
       req.onerror = function(e) {
       	//aqui llamamos a beep
        console.log('PUSH: error endpoint--> ' + JSON.stringify(e));
+       beep(KO, JSON.stringify(e));
       }
    }
  } else {
