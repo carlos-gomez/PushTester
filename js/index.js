@@ -1,5 +1,10 @@
 var CANVAS_OK = "#00CC66";
+var CANVAS_KO = "#FA5858";
+var CANVAS_WR = "#F4FA58";
+
 var CANVAS_STR_OK = "OK";
+var CANVAS_STR_KO = "CRITICAL";
+var CANVAS_STR_WR = "WARNING";
 
 
 $(function() {
@@ -16,17 +21,7 @@ $(function() {
    else{
    	alert('Conecte el dispositivo a una red con datos');
    }
-  //timeOut_init();
 });
-
-function timeOut() {
-    window.alert('Hello!');
-    timeOut_init();   
-}
-
-function timeOut_init() {
-    setTimeout('timeOut()', 5000);
-}
 
 document.querySelector('#pushbtn').addEventListener ('click', function(){
 	alert('Sent new version to push notification server')
@@ -36,12 +31,14 @@ document.querySelector('#pushbtn').addEventListener ('click', function(){
 	updateVersion(localStorage.endpoint, version);
 })
 
+function beep(severity, msj){
+
+}
 
 //Poner cuadrado status con color y msg. Nueva func no hace falta msj, hará 
 function fill_canvas(id, color, string){
 	var c = document.getElementById(id);
 	var ctx = c.getContext("2d");
-	//ctx.fillStyle = "#00CC66";
 	ctx.fillStyle = color;
 	ctx.fillRect(5,5,210,100);
 	ctx.fillStyle = "white";
@@ -49,8 +46,7 @@ function fill_canvas(id, color, string){
 	ctx.fillText(string,77,45);
 }
 
-function fill_token(){
-	var token = localStorage.endpoint || null;
+function fill_token(token){
    	$('#AppToken').html('Mi AppToken: ' + token);
 }
 
@@ -100,7 +96,7 @@ function endpoint_register(){
         console.log('endpoint equals evt.pushEndpoint ' + endpoint);
       var notification = navigator.mozNotification.createNotification('PushTester new version', 'version = ' + evt.version);
       notification.show();
-      $('lastversion_D').html(new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString());
+      $('#lastversion_D').html(new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString());
       }
 
     });
@@ -114,6 +110,7 @@ function endpoint_register(){
       req.onsuccess = function(e) {
         var endpoint = localStorage.endpoint = req.result;
         console.log('PUSH-REGISTER: nuevo endpoint --> ' + endpoint);
+        fill_token(endpoint);
       }
 
       req.onerror = function(e) {
@@ -136,6 +133,7 @@ function endpoint_register(){
       req.onsuccess = function(e) {
         endpoint = localStorage.endpoint = req.result;
         console.log('PUSH: nuevo endpoint --> ' + endpoint);
+        fill_token(endpoint);
 
       }
 
@@ -147,24 +145,15 @@ function endpoint_register(){
  } else {
   endpoint = localStorage.endpoint;
   console.log('PUSH: mi endpoint es: ' + endpoint);
+  fill_token(endpoint);
  }
 }
-/*document.querySelector('#hello').addEventListener ('click', function () {
 
-alert('hacer hello');
-});
+function timeOut() {
+    window.alert('Hello!');
+    timeOut_init();   
+}
 
-document.querySelector('#register').addEventListener ('click', function () {
-
-alert('hacer register');
-});
-
-document.querySelector('#unregister').addEventListener ('click', function () {
-
-alert('hacer unregister');
-});
-
-document.querySelector('#notify').addEventListener ('click', function () {
-
-alert('hacer notify');
-});*/
+function timeOut_init() {
+    setTimeout('timeOut()', 5000);
+}
