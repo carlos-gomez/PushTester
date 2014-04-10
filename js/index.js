@@ -34,13 +34,13 @@ document.querySelector('#pushbtn').addEventListener ('click', function(){
 function beep(severity, msj){
 	switch(severity){
 		case 'KO':
-			fill_canvas(pns_status, CANVAS_KO, CANVAS_STR_KO);
+			fill_canvas('pns_status', CANVAS_KO, CANVAS_STR_KO);
 			alert('Algo salió mal :( ' + '\r' + msj);
 			//beep :) 
 			break;
 
 		case 'WR':
-			fill_canvas(pns_status, CANVAS_WR, CANVAS_STR_WR);
+			fill_canvas('pns_status', CANVAS_WR, CANVAS_STR_WR);
 			alert('Be carefully' + '\r' + msj);
 			break;
 	}
@@ -136,7 +136,8 @@ function endpoint_register(){
   //Si no se soportan notificaciones push
   else{
   	console.log('The browser doesn\'t support notifications push')
-  	alert('The browser doesn\'t support notifications push')
+  	//alert('The browser doesn\'t support notifications push')
+  	beep('WR','The browser doesn\'t support notifications push')
   }
 
   if(!endpoint){
